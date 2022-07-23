@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+      integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="{% static '/css/main.css' %}" />
+    <style>
+      .center {
+        position: fixed;
+        background-color: rgb(20, 13, 36);
+        color: cornsilk;
+        background: linear-gradient(
+          to top,
+          rgba(53, 152, 197, 0.9),
+          rgba(20, 13, 36, 0.6)
+        );
+        height: 600px;
+        width: 750px;
+        top: 59%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    {% include 'story/navbar1.html' %}
+    <h1 align="center" style="color: cornsilk">DISPLAY</h1>
+    <div class="center">
+      <table>
+        <tr>
+          <th align="center" height="50" width="200">TITLE</th>
+          <th align="center" height="50" width="200">AUTHOR</th>
+          <th align="center" height="50" width="200">PUBLISHER</th>
+          <th align="center" height="50" width="200">YEAR OF PUBLISH</th>
+          <th align="center" height="50" width="200">GENRE</th>
+        </tr>
+        {% for i in data %}
+        <tr>
+          {% for j in i %}
+          <td height="50" width="200">{{j}}</td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>

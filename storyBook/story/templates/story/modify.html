@@ -1,0 +1,42 @@
+{% extends 'story/main.html' %} {% block head-content %}
+<style>
+  .center {
+    position: fixed;
+    background-color: rgb(20, 13, 36);
+    color: cornsilk;
+    background: linear-gradient(
+      to top,
+      rgba(53, 152, 197, 0.9),
+      rgba(20, 13, 36, 0.6)
+    );
+    height: 400px;
+    width: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+</style>
+<script type="text/javascript">
+  window.addEventListener("load", () => {
+    var myJavaScriptVariable = "{{k}}";
+    if (myJavaScriptVariable == 1) {
+      alert("record successfully modified");
+    }
+    if (myJavaScriptVariable == -1) {
+      alert("Must enter the same title");
+    }
+  });
+</script>
+
+{% endblock %} {% block main-content%}
+<h1 align="center" style="color: cornsilk">MODIFY</h1>
+<div class="center">
+  </form>
+  <form action="" method="post">
+    {% csrf_token %} {% for field in form %}
+    <div ><br>{{ field.label_tag }}</b> {{ field }}</div>
+    {% endfor %}
+    <input type="submit" name="submit"  />
+  </form>
+</div>
+{% endblock %}
